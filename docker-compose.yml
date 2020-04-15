@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb:10.1
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${PWD}/docker/volumes/mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin1!Admin1!
+      MYSQL_DATABASE: test
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: UTC
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
+      - 5672:5672
+    environment:
+      RABBITMQ_DEFAULT_USER: "WFM"
+      RABBITMQ_DEFAULT_PASS: "Admin1!"

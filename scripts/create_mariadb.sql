@@ -1,0 +1,7 @@
+DROP USER IF EXISTS 'starter';
+CREATE USER starter@'%' IDENTIFIED BY 'Admin1!';
+DROP DATABASE IF EXISTS starter;
+CREATE DATABASE starter DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL PRIVILEGES ON starter.* TO starter IDENTIFIED BY 'Admin1!';
+SET SESSION time_zone = UTC;
+SET GLOBAL max_allowed_packet=1073741824;

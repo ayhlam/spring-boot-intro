@@ -1,0 +1,36 @@
+### Project
+target/
+log/
+*.log
+
+### Java
+*.class
+*.ear
+*.jar
+*.war
+
+### JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+hs_err_pid*
+.ruleset
+
+### Phabricator
+submitforcodereview.ps1
+submitforcodereview.bat
+.arcconfig
+
+.DS_Store
+
+### Docker Volumes
+docker/volumes/
