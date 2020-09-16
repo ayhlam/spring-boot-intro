@@ -1,39 +1,24 @@
-# WFM Onboarding Backend Project
+# Spring Introductory Backend Project
 
-The goal of this project is to familiarize you with with our backend development. This document assumes that you will 
-have your environment set up. If you do not, please follow the steps in the WFM onboarding document.
+The goal of this project is to familiarize you with with our backend development. To start, you will need to have 
+the following tools:
+
+- Java 11
+- Maven 
+- MySQL
+- Docker
 
 ## Introduction
 This is a small starter project with a company and persona model. We already have a few basic endpoints to CREATE and 
 GET both models. In this guide, we will be writing a method to assign a persona to a company, and another method to 
 retrieve all personas assigned to a company. 
 
-This is not a comprehensive guide to our architecture. A lot of what you’ll see has been simplified significantly, 
-but does closely mimic what we do. 
-
 ## Step 1: Clone the base repository
 
 We’ll need to get you a local copy of the code. 
-
 Clone the project to your local dev folder. You can find the clone link on the sidebar.
 
-```
-$ git clone ssh://git@ultigit.ultimatesoftware.com:7999/~aaronla/wfm-starter-backend.git
-```
-
-We’ll create a new branch for your development. Branches are prefixed with information about the ticket you 
-are working on. `feature` is the type of ticket, and the `ULTI-123456` is a reference to the JIRA link. We don’t 
-have one for you, so just pretend. 
-
-```
-$ git checkout -b feature/ULTI-123456-<YOUR_NAME>
-```
-
 ## Step 2: Setup and first build
-
-Now we’ll need to set up our environment. First thing is to set up RabbitMQ and MariaDB. Some teams will have you set 
-that up on your machine and start them up using `brew`. Today, we’ll leave it to magic and allow docker to do all the 
-work for us. 
 
 In the repository folder, run `docker-compose up`. We’ll keep an eye on this window to make sure all our services are 
 up and running. If you know what you’re doing, you can add the `-d` tag to run the command as a daemon. Wait a minute
@@ -54,8 +39,7 @@ If that succeeds, we’ll run our project for the first time. `mvn clean spring-
 
 ## Step 3: Exploring our Project
 
-Let’s walk through what we have here. There’s no coding in this step, but we should become familiar with what we’re 
-working with. 
+There’s no coding in this step, but we should become familiar with what we’re working with. 
 
 ### Persona and Company Domain
 In our main project, we’ll see two domains. They’re both pretty similar at this point, just a few differences in their 
@@ -69,8 +53,7 @@ for this project, but we use them in our main projects -- so it’s useful to ge
 ### Resources
 Inside the resources folder, we have an `application.properties` file. This is where we put in all the properties 
 for the application that’s configured by spring. Here, we also configure spring to automatically create tables in 
-our database by looking at our models. We don’t do this in production, since we have very complex tables. In our 
-other projects, we use a tool called Liquibase to manipulate our tables. 
+our database by looking at our models.
 
 ## Step 4: Trying it out
 Let’s play around with what we have. Open Postman, and create an empty request.
@@ -199,11 +182,10 @@ We've written a few new methods in step 5 and 6. Before we call our task complet
 the methods we have touched upon. Again, solutions are available in the solutions branch. 
 
 ## Step 8: Cleanup
-Once you are finished with this project, stop your java process from running, and close-down the services (rabbitmq and
-mariadb) by running `docker-compose down` in the root of this project. MariaDB is configured with a volume, so your data
-will be saved to disk for the next time you want to run `docker-compose up -d` in this project again.
+Once you are finished with this project, stop your java process from running, and close-down the services (by running 
+`docker-compose down` in the root of this project. MariaDB is configured with a volume, so your data will be saved to 
+disk for the next time you want to run `docker-compose up -d` in this project again.
 
 ## Conclusion
 Congratulations, you have just created two endpoints to allow users to assign a persona to a company, and view the 
-assignments that they have created. You will be working with similar frameworks in WFM, so it's good to start with the
-basics and get familiar with everything we do! 
+assignments that they have created. 

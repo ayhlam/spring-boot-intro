@@ -13,12 +13,3 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       TZ: UTC
-
-  rabbitmq:
-    image: rabbitmq:3-management
-    ports:
-      - 15672:15672
-      - 5672:5672
-    environment:
-      RABBITMQ_DEFAULT_USER: "WFM"
-      RABBITMQ_DEFAULT_PASS: "Admin1!"
